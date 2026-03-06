@@ -1,8 +1,13 @@
 import random
 from data import constants
+
 def get_random_list(size, limit=constants.MAX_VALUE):
+    # Sorted list required for binary and ternary search
     return list(range(1, size + 1))
+
 def get_random_x(limit=constants.MAX_VALUE):
     return random.randint(1, limit)
 
-
+def get_worst_case_target(size):
+    # element not present in array
+    return size + 1

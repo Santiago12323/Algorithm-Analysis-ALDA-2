@@ -178,6 +178,126 @@ TOTAL                            93      5    95%
 ### Execution Time
 ![Execution Time](images/Tiempo2M.png)
 
+
+# Worst Case Experimental Setup
+
+To properly evaluate the behavior of the searching algorithms, the final experiment was executed under **worst-case conditions**.
+
+In algorithm analysis, the **worst case** represents the scenario where the algorithm performs the **maximum possible number of operations** before terminating.
+
+For searching algorithms, the worst case occurs when the **target element is not present in the dataset**, forcing the algorithm to explore the maximum number of comparisons before concluding that the element does not exist.
+
+---
+
+## Worst Case Definition for Each Algorithm
+
+### Linear Search
+
+For Linear Search, the worst case occurs when:
+
+- the target element **does not exist**, or
+- the element is **located in the last position** of the array.
+
+In both situations, the algorithm must examine **every element of the dataset**.
+
+Therefore, the time complexity becomes:
+
+**O(n)**
+
+---
+
+### Binary Search
+
+In Binary Search, the worst case occurs when the **target element is not present in the array**.
+
+Since the algorithm divides the dataset in half at every iteration, it must continue performing comparisons until the search interval becomes empty.
+
+The number of steps required is proportional to the **logarithm base 2 of the dataset size**, giving a worst-case complexity of:
+
+**O(log₂ n)**
+
+---
+
+### Ternary Search
+
+Ternary Search behaves similarly to Binary Search but divides the search interval into **three segments** instead of two.
+
+When the target element is not found in the dataset, the algorithm must continue narrowing the search interval until it becomes empty.
+
+The number of operations grows according to the **logarithm base 3 of the dataset size**, producing a worst-case complexity of:
+
+**O(log₃ n)**
+
+---
+
+## Experimental Configuration
+
+To ensure that the experiment consistently evaluates the **worst-case scenario**, the datasets were generated as sorted arrays containing values from:
+
+[1, 2, 3, ..., n]
+
+For an array of size **n**, the target value used in the experiment was:
+
+target = n + 1
+
+
+Since this value does **not exist in the dataset**, all algorithms are forced to execute their **maximum number of comparisons** before terminating.
+
+This configuration guarantees that the measurements correspond to the **worst-case behavior** of each algorithm.
+
+---
+
+## Metrics Collected
+
+Two performance metrics were measured for each algorithm:
+
+### Execution Time
+
+Execution time measures how long the algorithm takes to complete the search process.  
+This metric is essential for evaluating **algorithm scalability** as the dataset size increases.
+
+The project includes graphs showing the evolution of execution time for different dataset sizes.
+
+### Memory Usage
+
+Memory usage measures the amount of RAM consumed during execution.  
+Although searching algorithms are typically lightweight, measuring memory usage allows comparison of their **space efficiency**.
+
+Memory consumption was also visualized through graphs to illustrate how it behaves as the dataset size grows.
+
+---
+
+## Worst Case Experiment (10M – 100M Elements)
+
+The final experiment evaluates algorithm performance on **very large datasets**, ranging from **10 million to 100 million elements**, while maintaining worst-case search conditions.
+
+This experiment highlights the **scalability differences between linear and logarithmic algorithms**.
+
+As the dataset size increases:
+
+- **Linear Search** grows linearly.
+- **Binary Search** grows logarithmically.
+- **Ternary Search** also grows logarithmically but introduces additional comparisons per iteration.
+
+The following tables and graphs present the execution time and memory usage results obtained during this experiment.
+
+---
+
+### Execution Time Growth
+
+The following graph illustrates how execution time grows as the dataset size increases under worst-case conditions.
+
+![worst_case_time.png](images/worst_case_time.png)
+
+### Memory Consumption
+
+The following graph shows the memory usage of each algorithm during the worst-case experiment.
+
+![worst_case_memory.png](images/worst_case_memory.png)
+
+
+![img.png](images/img.png)
+
 # Conclusions
 
 ## Performance Behavior
